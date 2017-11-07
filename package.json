@@ -1,0 +1,29 @@
+{
+  "name": "pnr",
+  "version": "0.0.1",
+  "author": "rafaelcastrocouto",
+  "description": "Põe na Roda - App",
+  "homepage": "https://pnr.herokuapp.com/",
+  "readmeFilename": "README.md",
+  "engine": "node >= 0.10.x",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaelcastrocouto/foda"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/rafaelcastrocouto/foda/issues"
+  },
+  "keywords": [
+    "youtube",
+    "news"
+  ],
+  "dependencies": {
+    "node-read": "^0.1.7",
+    "cheerio": "^1.0.0"
+  },
+  "license": "MIT"
+}
