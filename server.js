@@ -39,7 +39,7 @@ var update = function () {
 
 var header = '<!DOCTYPE html><html lang="en"><head>'+
 '<meta charset="utf-8"><title>Põe na Roda</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><style>'+
-'html,body{height:100%;margin:0;}'+
+'html,body,#container{height:100%;margin:0;}'+
 'body {background:#efefef;font-size:13px;font-family:"YouTube Noto",Roboto,arial,sans-serif;}'+
 'h3{font-size:13px;margin:4px 0;}'+
 'ul{list-style:none;padding:0;margin:0}'+
