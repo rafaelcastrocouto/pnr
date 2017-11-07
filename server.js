@@ -55,7 +55,7 @@ var header = '<!DOCTYPE html><html lang="en"><head>'+
 '.yt-badge-list{visibility:hidden;}'+
 '.yt-lockup-meta{position:absolute;left:200px;top:0;}'+
 '.video-time{position: absolute;bottom:6px;right:2px;padding:0 4px;font-weight:500;font-size:11px;background-color:#000;color:#fff;height:14px;line-height:14px;opacity:0.75;vertical-align:top;display:inline-block;}'+
-'.channels-content-item{position:relative;margin-bottom:12px;}'+
+'.channels-content-item{position:relative;margin-bottom:12px;min-height:180px;}'+
 '#container{display:flex;flex-direction:column;}'+
 '#bh{float:none;background:#fff;width:100%;padding:6px;z-index:1;min-height:68px;}'+
 '#bh .l{margin:0 10px;font-size: 15px;}'+
