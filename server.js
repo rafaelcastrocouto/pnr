@@ -70,9 +70,9 @@ var header = '<!DOCTYPE html><html lang="en"><head>'+
 '#bh img{margin:4px;margin-right:12px;}'+
 '#bh a:hover{text-decoration:none;}'+
 '#bh .l:hover{background:#eee;}'+
-'#bh .l{padding: 6px 12px 0;border-radius:4px 4px 0 0;margin-right:8px;font-size: 15px;border:1px solid #bbb;border-bottom: 0;}'+
-'#content{overflow:scroll;scroll-behavior:smooth;margin-top:8px;}'+
-'#yt,#news{margin:0 8px;}'+
+'#bh .l{padding:2px 18px 0;border-radius:4px 4px 0 0;margin-right:8px;font-size: 15px;border:1px solid #bbb;border-bottom:0;display:inline-block;vertical-align:bottom;line-height:36px;}'+
+'#content{overflow:scroll;scroll-behavior:smooth;}'+
+'#yt,#news{margin:6px;}'+
 '#yt{margin-bottom:16px;}'+
 '#news{float:right;}'+
 '#news > div{break-inside:avoid;}'+
