@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "node-read": "^0.1.7",
-    "cheerio": "^1.0.0"
+    "cheerio": "1.0.0-rc.2"
   },
   "license": "MIT"
 }
