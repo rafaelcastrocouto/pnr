@@ -22,8 +22,9 @@
     "news"
   ],
   "dependencies": {
+    "cheerio": "1.0.0-rc.2",
     "node-read": "^0.1.7",
-    "cheerio": "1.0.0-rc.2"
+    "serve-static": "^1.13.1"
   },
   "license": "MIT"
 }
