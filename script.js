@@ -6,7 +6,7 @@ var newslinks = news.getElementsByTagName('a');
   el.setAttribute('target', '_blank');
 });
 var yt = document.getElementById('yt');
-var ytlinks = document.getElementsByClassName('yt-uix-tile-link');
+var ytlinks = document.getElementsByClassName('yt-uix-sessionlink');
 [].forEach.call(ytlinks, function (el, i) {
   el.setAttribute('href', 'https://www.youtube.com' + el.getAttribute('href'));
   el.setAttribute('target', '_blank');
