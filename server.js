@@ -10,9 +10,9 @@ require.extensions['.html'] = function(module, filename) {
   module.exports = fs.readFileSync(filename, 'utf8');
 }
 
-var header = require("./header.html");
-var menu   = require("./menu.html");
-var script = require("./script.html");
+var header = require('./header.html');
+var menu   = require('./menu.html');
+var end = require('./end.html');
 
 var body = menu;
 
@@ -33,7 +33,7 @@ var createServer = function() {
     static(request, response, function onNext(err) {
       response.setHeader('Content-Type', 'text/html; charset=UTF-8');
       response.statusCode = 200;
-      response.end(header + body + script);
+      response.end(header + body + end);
     });
   }).listen(port, host);
 }
