@@ -187,8 +187,16 @@ a:hover,a:focus {
   font-size: 11px;
 }
 
-#news .item-info * {
-  margin-right: 4px;
+#news .item-info > * {
+  display: block;
+}
+
+#news .item-author {
+  display: none;
+}
+
+#news .item-info .pp-icon {
+  margin-right: 6px;
 }
 
 #news > h2 {
