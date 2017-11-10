@@ -13,5 +13,8 @@
     }
   };
   content.addEventListener("scroll", sc);
+  
+  var news = document.getElementById("news");
+  if (!news.childElementCount) setTimeout(location.reload.bind(location), 500);
 </script>
 </body></html>
