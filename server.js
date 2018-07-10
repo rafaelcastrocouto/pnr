@@ -42,12 +42,12 @@ var update = function() {
   body = menu;
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
     body += '<div id="yt">' + youtube + '</div>';
-    extractList('http://poenaroda.com.br', '.col-sm-6', function(superpride) {
-      body += '<div id="news"><h2>Novidades</h2>' + superpride + '</div>';
+    extractList('http://poenaroda.com.br', '.td-block-span4', function(news) {
+      body += '<div id="news"><h2>Novidades</h2>' + news + '</div>';
     });
   });
 }
 
 update();
 createServer();
-setInterval(update, 1000 * 60 * 15);
+setInterval(update, 1000 * 60 * 60);

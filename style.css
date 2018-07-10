@@ -156,15 +156,18 @@ a:hover,a:focus {
 
 #yt,#news {
   margin: 6px;
+  padding: 15px;
 }
 
 #yt {
   margin-bottom: 16px;
 }
 
-#yt .yt-thumb-clip img {
+#yt .yt-thumb-clip img,
+#news .td-module-thumb img {
   width: 100%;
 }
+
 
 #news {
   float: right;
@@ -879,7 +882,7 @@ button, input[type="submit"], .dark-div .light-div button, .dark-div .light-div 
   border-left-color: rgb(34, 183, 226);
 }
 
-@media(min-width: 420px) {
+@media(min-width: 416px) {
   #bh .l,#news > h2 {
     display:none;
   }
