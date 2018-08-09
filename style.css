@@ -91,10 +91,6 @@ a:hover {
   text-decoration: none;
 }
 
-#header .link:hover, #header .link[disabled] {
-  opacity: 0.5;
-}
-
 #header .link {
   color: #fff;
   padding: 4px 16px 0;
@@ -230,6 +226,7 @@ a:hover {
 #ct {
   padding: 10px;
   font-size: 140%;
+  margin-bottom: 144px;
 }
 
 #ct h1 {
