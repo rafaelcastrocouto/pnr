@@ -1,6 +1,7 @@
 var fs      = require('fs');
 var http    = require('http');
 var read    = require('node-read');
+var feed    = require('feed-read');
 var cheerio = require('cheerio');
 var static  = require('serve-static')(__dirname);
 var host    = process.env.HOST;
@@ -42,8 +43,18 @@ var update = function() {
   body = menu;
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
     body += '<div id="yt">' + youtube + '</div>';
-    extractList('http://poenaroda.com.br', '.td-block-span4', function(news) {
-      body += '<div id="news"><h2>Novidades</h2>' + news + '</div>';
+    var data = [];
+    feed('http://poenaroda.com.br/feed', function (error, articles) {
+      if (!error) {
+        var articlesCount = 0;
+        articles.forEach(function (article) {
+          data.push(article);
+          articlesCount++;
+          if (articlesCount === articles.length) {
+            body += '<div id="feed" style="display:none">'+(JSON.stringify(data))+'</div>';
+          }
+        });
+      }
     });
   });
 }

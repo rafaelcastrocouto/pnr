@@ -1,47 +1,38 @@
-
-var news = document.getElementById('news');
+/*var news = document.getElementById('news');
 if (!news) setTimeout(location.reload.bind(location), 500);
 var newslinks = news.getElementsByTagName('a');
 [].forEach.call(newslinks, function (el, i) {
   el.setAttribute('target', '_blank');
-});
+});*/
+
+
 var yt = document.getElementById('yt');
 var ytlinks = document.getElementsByClassName('yt-uix-sessionlink');
 [].forEach.call(ytlinks, function (el, i) {
   el.setAttribute('href', 'https://www.youtube.com' + el.getAttribute('href'));
   el.setAttribute('target', '_blank');
 });
-var links = document.getElementsByClassName('l');
-var content = document.getElementById('content');
-var scrollevent = function() {
-  if (yt.offsetHeight < content.scrollTop) {
-    links[1].setAttribute('disabled', true);
-    links[0].removeAttribute('disabled');
-  } else {
-    links[0].setAttribute('disabled', true);
-    links[1].removeAttribute('disabled');
-  }
+
+var news = $('<div>').attr('id','news').appendTo($('#content'));
+var addArticle = function (article) {
+  var container = $('<div>').addClass('article').appendTo(news),
+    title = $('<a>').addClass('title').attr('href', article.link).appendTo(container),
+    content = $('<div>').addClass('content').html(article.content).appendTo(container),
+    meta = $('<p>').addClass('meta').appendTo(container),
+    date = new Date(article.published),
+    formatedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+    //link = $('<a>').attr('href', article.feed.link).appendTo(meta);
+  $('<h1>').text(article.title).appendTo(title);
+  $('<span>').addClass('date').text(formatedDate).appendTo(meta).attr('title', date.toUTCString());
+  //$('<span>').text(article.feed.name).appendTo(link);
+  //$('<span>').addClass('author').text(article.author).appendTo(meta);
 };
-content.addEventListener('scroll', scrollevent);
-var searchtoggle = document.getElementsByClassName('search-toggle')[0];
-searchtoggle.removeAttribute('href');
-var searchform = document.getElementsByClassName('headline-search')[0];
-var sociallinks = document.getElementsByClassName('social-links ')[0];
-var searchclick = function() {
-  toggleSearch();
-  return false;
-};
-searchtoggle.addEventListener('click', searchclick);
-var toggleSearch = function () {
-  searchform.classList.toggle('toggled');
-  searchtoggle.classList.toggle('toggled');
-  sociallinks.classList.toggle('toggled');
-};
-var hidesearch = function (e) {
-  if (!searchform.contains(e.target) && !searchtoggle.contains(e.target)){
-    searchform.classList.remove('toggled');
-    searchtoggle.classList.remove('toggled');
-    sociallinks.classList.remove('toggled');
-  }
-};
-document.addEventListener('click', hidesearch);
+
+var feed = document.getElementById('feed');
+var data = JSON.parse(feed.textContent);
+data.sort(function (a, b) {
+  var aDate = new Date(a.published),
+    bDate = new Date(b.published);
+  return bDate - aDate;
+});
+data.forEach(addArticle);
