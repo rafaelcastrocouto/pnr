@@ -1,19 +1,12 @@
-/*var news = document.getElementById('news');
-if (!news) setTimeout(location.reload.bind(location), 500);
-var newslinks = news.getElementsByTagName('a');
-[].forEach.call(newslinks, function (el, i) {
-  el.setAttribute('target', '_blank');
-});*/
+var content = $('#content');
 
-
-var yt = document.getElementById('yt');
-var ytlinks = document.getElementsByClassName('yt-uix-sessionlink');
-[].forEach.call(ytlinks, function (el, i) {
+var yt = $('#yt');
+$('.yt-uix-sessionlink').each(function (i, el) {
   el.setAttribute('href', 'https://www.youtube.com' + el.getAttribute('href'));
   el.setAttribute('target', '_blank');
 });
 
-var news = $('<div>').attr('id','news').appendTo($('#content'));
+var news = $('<div>').attr('id','news').addClass('tab mhide').prependTo(content);
 var addArticle = function (article) {
   var container = $('<div>').addClass('article').appendTo(news),
     title = $('<a>').addClass('title').attr('href', article.link).appendTo(container),
@@ -28,11 +21,31 @@ var addArticle = function (article) {
   //$('<span>').addClass('author').text(article.author).appendTo(meta);
 };
 
-var feed = document.getElementById('feed');
-var data = JSON.parse(feed.textContent);
+var feed = $('#feed').text();
+var data = JSON.parse(feed);
 data.sort(function (a, b) {
   var aDate = new Date(a.published),
     bDate = new Date(b.published);
   return bDate - aDate;
 });
 data.forEach(addArticle);
+
+var ct = $('#ct');
+
+var menu = {
+  yt: yt,
+  news: news,
+  ct: ct
+}
+
+$('#header .link').on('click', function () {
+  var target = $(this);
+  var id = target.data('to');
+  if (menu[id]) {
+    window.scrollTo(0,0);
+    $('#header .link.active').removeClass('active');
+    target.addClass('active');
+    $('#content > .tab').addClass('mhide');
+    menu[id].removeClass('mhide');
+  }
+});

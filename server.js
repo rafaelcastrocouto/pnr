@@ -11,9 +11,9 @@ require.extensions['.html'] = function(module, filename) {
   module.exports = fs.readFileSync(filename, 'utf8');
 }
 
-var header = require('./header.html');
-var menu   = require('./menu.html');
-var end = require('./end.html');
+var header = require('./html/header.html');
+var menu   = require('./html/menu.html');
+var end = require('./html/end.html');
 
 var body = menu;
 
@@ -42,19 +42,12 @@ var createServer = function() {
 var update = function() {
   body = menu;
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
-    body += '<div id="yt">' + youtube + '</div>';
-    var data = [];
-    feed('http://poenaroda.com.br/feed', function (error, articles) {
-      if (!error) {
-        var articlesCount = 0;
-        articles.forEach(function (article) {
-          data.push(article);
-          articlesCount++;
-          if (articlesCount === articles.length) {
-            body += '<div id="feed" style="display:none">'+(JSON.stringify(data))+'</div>';
-          }
-        });
-      }
+    body += '<div id="yt" class="tab">' + youtube + '</div>';
+    extractList('http://poenaroda.com.br/contato', '.td-ss-main-content', function (contact) {
+      body += '<div id="ct" class="tab mhide">' + contact + '</div>';
+      feed('http://poenaroda.com.br/feed', function (error, articles) {
+        if (!error) body += '<div id="feed" style="display:none">'+(JSON.stringify(articles))+'</div>';
+      });
     });
   });
 }
