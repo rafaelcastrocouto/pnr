@@ -235,9 +235,10 @@ a:hover {
 }
 
 #market {
+  display: block;
   background-color: #fff;
   background-repeat: no-repeat;
-  background-image: url(http://poenaroda.com.br/wp-content/uploads/2018/05/logo_140x48.png);
+  background-image: url("logo_140x48.png");
   background-position: center;
   position: fixed;
   bottom: 0;
