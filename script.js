@@ -1,3 +1,4 @@
+var b = $('body');
 var content = $('#content');
 
 var yt = $('#yt');
@@ -5,7 +6,7 @@ $('.yt-uix-sessionlink').each(function (i, el) {
   el.setAttribute('href', 'https://www.youtube.com' + el.getAttribute('href'));
   el.setAttribute('target', '_blank');
 });
-
+/*
 var news = $('<div>').attr('id','news').addClass('tab mhide').prependTo(content);
 var addArticle = function (article) {
   var container = $('<div>').addClass('article').appendTo(news),
@@ -29,7 +30,8 @@ data.sort(function (a, b) {
   return bDate - aDate;
 });
 data.forEach(addArticle);
-
+*/
+var news = $('#news')
 var ct = $('#ct');
 
 var menu = {
@@ -47,5 +49,7 @@ $('#header .link').on('click', function () {
     target.addClass('active');
     $('#content > .tab').addClass('mhide');
     menu[id].removeClass('mhide');
+    b.removeClass(Object.keys(menu).join(' '));
+    b.addClass(id);
   }
 });

@@ -1,7 +1,7 @@
 var fs      = require('fs');
 var http    = require('http');
 var read    = require('node-read');
-var feed    = require('feed-read');
+//var feed    = require('feed-read');
 var cheerio = require('cheerio');
 var static  = require('serve-static')(__dirname);
 var host    = process.env.HOST;
@@ -44,14 +44,20 @@ var update = function() {
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
     body += '<div id="yt" class="tab">' + youtube + '</div>';
     extractList('http://poenaroda.com.br/contato', '.td-ss-main-content', function (contact) {
+      body += '<div id="news" class="tab mhide"><iframe src="http://poenaroda.com.br"></iframe></div>';
       body += '<div id="ct" class="tab mhide">' + contact + '</div>';
-      feed('http://poenaroda.com.br/feed', function (error, articles) {
+      createServer();
+      /*extractList('http://poenaroda.com.br', '.home', function (home) {
+        body += '<div id="feed" class="tab mhide">' + home + '</div>';
+        createServer();
+      });*/
+      /*feed('http://poenaroda.com.br/feed', function (error, articles) {
         if (!error) body += '<div id="feed" style="display:none">'+(JSON.stringify(articles))+'</div>';
       });
+      */
     });
   });
 }
 
 update();
-createServer();
 setInterval(update, 1000 * 60 * 60);

@@ -121,7 +121,7 @@ a:hover {
   position: relative;
 }
 
-#content {
+#yt, #ct {
   margin-bottom: 144px;
 }
 
@@ -190,9 +190,20 @@ a:hover {
 }
 
 #news {
-  padding: 5px 10px;
+  padding: 0;
 }
 
+#news iframe {
+  border: 0;
+  width: 100vw;
+  height: 76vh;
+  overflow-y: scroll;
+}
+
+body.news {
+  overflow: hidden;
+}
+/*
 #news .content {
   position: relative;
   text-align: justify;
@@ -223,7 +234,7 @@ a:hover {
   margin-bottom: -20px;
   position: relative;
 }
-
+*/
 #ct {
   padding: 10px;
   font-size: 140%;
@@ -257,7 +268,9 @@ a:hover {
   #header .link {
     display:none;
   }
-
+  #content {
+    margin-bottom: 144px;
+  }
   #yt {
     padding: 0;
     float: right;
@@ -269,9 +282,17 @@ a:hover {
   }
   #news {
     float: left;
-    width: calc(100% - 320px);
-    column-width: 180px;
-    column-gap: 12px;
+    width: calc(100% - 300px);
+    /* column-width: 180px; */
+    /* column-gap: 12px; */
+    overflow: hidden;
+  }
+  #news iframe {
+    width: calc(100vw - 300px);
+    height: 10000px;
+  }
+  body.news {
+    overflow: auto;
   }
 
   .mhide {
@@ -279,6 +300,6 @@ a:hover {
   }
 
   #ct {
-  /* clear: both; */
+    display: none;
   }
 }
