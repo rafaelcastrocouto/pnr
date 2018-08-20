@@ -121,10 +121,9 @@ a:hover {
   position: relative;
 }
 
-#yt, #ct {
+#content {
   margin-bottom: 144px;
 }
-
 #yt .yt-lockup-thumbnail > span {
   position: relative;
   width: 100%;
