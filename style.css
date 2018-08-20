@@ -166,9 +166,11 @@ a:hover {
   width: 100%;
   position: absolute;
   z-index: -1;
+  filter: blur(1.5px);
 }
 
 #news .td-module-thumb img {
+  /* filter: brightness(0.9); */
   height: 100%;
 }
 #yt button, #yt .hid {
