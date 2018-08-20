@@ -44,7 +44,7 @@ var update = function() {
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
     body += '<div id="yt" class="tab">' + youtube + '</div>';
     extractList('http://poenaroda.com.br/contato', '.td-ss-main-content', function (contact) {
-      body += '<div id="news" class="tab mhide"><iframe src="http://poenaroda.com.br"></iframe></div>';
+      body += '<div id="news" class="tab mhide"><iframe src="https://poenaroda.com.br"></iframe></div>';
       body += '<div id="ct" class="tab mhide">' + contact + '</div>';
       createServer();
       /*extractList('http://poenaroda.com.br', '.home', function (home) {
