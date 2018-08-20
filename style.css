@@ -154,28 +154,38 @@ a:hover {
   vertical-align: top;
 }
 
-#yt .channels-content-item {
+#yt .channels-content-item,
+#news .td-block-span6 {
   box-shadow: inset 0 -110px 200px rgba(40,40,40,0.8);
   position: relative;
   height: 53.8vw;
 }
 
-#yt .yt-thumb-clip img {
+#yt .yt-thumb-clip img,
+#news .td-module-thumb img {
   width: 100%;
   position: absolute;
   z-index: -1;
-  filter: brightness(0.5) blur(2px);
+  filter: brightness(0.5) blur(1.5px);
 }
 
+#news .td-module-thumb img {
+  filter: brightness(0.5);
+  height: 100%;
+}
 #yt button, #yt .hid {
   display: none;
 }
 
-#yt .yt-lockup-content, .yt-uix-sessionlink {
+#yt .yt-lockup-content, 
+#yt .yt-uix-sessionlink,
+#news .td-module-title *,
+#news .td-module-meta-info * {
   color: white;
 }
 
-#yt .yt-lockup-title {
+#yt .yt-lockup-title,
+#news .td-module-title {
   font-size: 18px;
   font-weight: normal;
   margin: 10px;
@@ -183,62 +193,24 @@ a:hover {
   bottom: 0;
 }
 
-#yt .yt-lockup-meta {
-  margin: 10px;
-  margin-top: 0;
+#yt .yt-lockup-meta,
+#news .td-module-meta-info {
+  padding: 6px;
   text-align: right;
 }
 
-#news {
-  padding: 0;
+#yt .yt-lockup-thumbnail {
+  height: 0;
 }
 
-#news iframe {
-  border: 0;
-  width: 100vw;
-  height: 76vh;
-  overflow-y: scroll;
+#news .td-module-comments,
+#news .td-post-author-name {
+  display: none;
 }
 
-body.news {
-  overflow: hidden;
-}
-/*
-#news .content {
-  position: relative;
-  text-align: justify;
-}
-
-#news .content:after {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 0px;
-  box-shadow: inset 0 -25px 25px #efefef;
-}
-
-#news .meta {
-  font-size: 90%;
-  text-align: right;
-  color: #888;
-  position: relative;
-  bottom: 16px;
-}
-
-#news .article {
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
-  margin-bottom: -20px;
-  position: relative;
-}
-*/
 #ct {
   padding: 10px;
   font-size: 140%;
-  margin-bottom: 144px;
 }
 
 #ct h1 {
@@ -263,13 +235,10 @@ body.news {
 
 @media(min-width: 500px) {
   #header {
-    height: 16px;
+    height: 18px;
   }
   #header .link {
     display:none;
-  }
-  #content {
-    margin-bottom: 144px;
   }
   #yt {
     padding: 0;
@@ -280,26 +249,14 @@ body.news {
   #yt .channels-content-item {
     height: 168px;
   }
+  #news .td-block-span6 {
+    height: calc((100vw - 300px) * 0.72);
+  }
   #news {
     float: left;
     width: calc(100% - 300px);
-    /* column-width: 180px; */
-    /* column-gap: 12px; */
-    overflow: hidden;
   }
-  #news iframe {
-    width: calc(100vw - 300px);
-    height: 10000px;
-  }
-  body.news {
-    overflow: auto;
-  }
-
   .mhide {
     display: block;
-  }
-
-  #ct {
-    display: none;
   }
 }
