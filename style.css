@@ -81,7 +81,7 @@ a:hover {
 #header {
   background: #222;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   height: 54px;
   text-align: center;
   position: fixed;
@@ -134,7 +134,7 @@ a:hover {
   position: relative;
 }
 
-#news .td-module-thumb * {
+#news > div * {
   vertical-align: top;
 }
 
@@ -177,17 +177,31 @@ a:hover {
   vertical-align: top;
 }
 
+#yt .channels-content-item, 
+#news > div:after {
+  box-shadow: inset 0 -160px 100px -100px rgba(16,16,16,0.85), 
+              inset 0 120px 100px -100px rgba(16,16,16,0.85);
+}
+#news > div:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
 #yt .channels-content-item {
-  box-shadow: inset 0 -160px 100px -100px rgba(16,16,16,0.85), inset 0 120px 100px -100px rgba(16,16,16,0.85);
   position: relative;
-  height: 53.8vw;
+  height: 57vw;
 }
 
 #yt .yt-thumb-clip img {
   width: 100%;
   position: absolute;
   z-index: -1;
-  filter: blur(1.5px);
 }
 
 #yt button, #yt .hid {
@@ -208,6 +222,9 @@ a:hover {
   margin: 10px;
   position: absolute;
   bottom: 0;
+}
+#news .td-module-title {
+  z-index:2;
 }
 
 #yt .yt-lockup-meta {
@@ -243,6 +260,7 @@ a:hover {
   bottom: 0;
   height: 90px;
   width: 100vw;
+  z-index: 3;
 }
 
 .mhide {
