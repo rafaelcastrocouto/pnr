@@ -42,12 +42,15 @@ var update = function() {
   body = menu;
   extractList('https://www.youtube.com/user/canalpoenaroda/videos', '.channels-content-item', function(youtube) {
     body += '<div id="yt" class="tab">' + youtube + '</div>';
-    extractList('http://www.poenaroda.com.br/category/pop/musica', '.td-block-span6', function (home) {
-      body += '<div id="news" class="tab mhide">'+home+'</div>';
-      extractList('http://poenaroda.com.br/contato', '.td-ss-main-content', function (contact) {
-        body += '<div id="ct" class="tab mhide">' + contact + '</div>';
-        createServer();
+    extractList('http://www.poenaroda.com.br/category/diversidade', '.td_module_mx18, .td_module_wrap', function (home) {
+      body += '<div id="news" class="tab mhide">'+home+'<!-- diversidade end -->';
+      extractList('http://www.poenaroda.com.br/category/pop', 'td_module_mx18, .td_module_wrap', function (pop) {
+        body += '<!-- pop start -->'+pop+'</div>';
+        extractList('http://poenaroda.com.br/contato', '.td-ss-main-content', function (contact) {
+          body += '<div id="ct" class="tab mhide">' + contact + '</div>';
+          createServer();
         });
+      });
     });
   });
 }
